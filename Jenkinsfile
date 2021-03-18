@@ -9,7 +9,7 @@ pipeline {
             steps {
                 echo '****************************** Stage 1'
                 sh 'echo $WORKSPACE'
-                sh 'docker --version'
+                //sh 'docker --version'
                 sh 'gcloud version'
                 sh 'nodejs -v'
                 sh 'npm -v'
