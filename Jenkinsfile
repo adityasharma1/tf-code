@@ -19,7 +19,7 @@ pipeline {
                 PORT = 8081
             }
             steps {
-                dir("${env.WORKSPACE}/external"){
+                /*dir("${env.WORKSPACE}/external"){
                     echo 'Retrieving source from github' 
                     git branch: 'master',
                         url: 'https://github.com/KevinRattan/terraform-jenkins-k8s-external.git'
@@ -32,12 +32,12 @@ pipeline {
                     echo 'Tests passed on to build Docker container'
                     echo "build id = ${env.BUILD_ID}"
                     sh "gcloud builds submit -t gcr.io/${projectId}/external:v20.${env.BUILD_ID} ."
-                }
+                }*/
             }
         }
         stage('Stage 3 - build internal') {
             steps {
-                dir("${env.WORKSPACE}/internal"){
+                /*dir("${env.WORKSPACE}/internal"){
                   echo 'Retrieving source from github' 
                     git branch: 'master',
                         url: 'https://github.com/KevinRattan/terraform-jenkins-k8s-internal.git'
@@ -49,19 +49,19 @@ pipeline {
                     echo 'Tests passed on to build Docker container'
                     echo "build id = ${env.BUILD_ID}"
                     sh "gcloud builds submit -t gcr.io/${projectId}/internal:v20.${env.BUILD_ID} ."
-                }
+                }*/
             }
         }
         stage('Stage 4 - deploy using terraform') {
             steps {
-                dir("${env.WORKSPACE}/terraform"){
+                /*dir("${env.WORKSPACE}/terraform"){
                   echo 'Retrieving source from github' 
                     git branch: 'master',
                         url: 'https://github.com/KevinRattan/terraform-jenkins-k8s-terraform.git'
                     sh "ls -a"  
                     sh 'terraform init'
                      sh "terraform apply -var project_id=${projectId} -var external_image_name=external:v20.${env.BUILD_ID}  -var internal_image_name=internal:v20.${env.BUILD_ID}  -auto-approve"
-                  }
+                  }*/
             }
             
         }
