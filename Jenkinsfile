@@ -5,8 +5,9 @@ pipeline {
 
    stages {
         stage('Stage 1 - workspace and versions') {
-            echo '****************************** Stage 1'            
+                        
             steps {
+                echo '****************************** Stage 1'
                 sh 'echo $WORKSPACE'
                 sh 'docker --version'
                 sh 'gcloud version'
