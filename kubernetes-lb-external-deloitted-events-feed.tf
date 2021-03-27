@@ -5,7 +5,7 @@ resource "kubernetes_service" "events-external-service" {
   }
   spec {
     selector = {
-      App = kubernetes_deployment.deloitted-external-events-feed-deployment.spec.0.template.0.metadata[0].labels.App
+      App = kubernetes_deployment.demo-external-events-feed-deployment.spec.0.template.0.metadata[0].labels.App
     }
     port {
       port        = 80

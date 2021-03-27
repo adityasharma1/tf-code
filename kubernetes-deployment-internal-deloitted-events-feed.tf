@@ -1,8 +1,8 @@
-resource "kubernetes_deployment" "deloitted-internal-events-feed-deployment" {
+resource "kubernetes_deployment" "demo-internal-events-feed-deployment" {
   metadata {
-    name = "deloitted-internal-events-feed-deployment"
+    name = "demo-internal-events-feed-deployment"
     labels = {
-      App = "deloitted-internal-events-feed"
+      App = "demo-internal-events-feed"
     }
     namespace = kubernetes_namespace.n.metadata[0].name
   }
@@ -12,19 +12,19 @@ resource "kubernetes_deployment" "deloitted-internal-events-feed-deployment" {
     progress_deadline_seconds = 60
     selector {
       match_labels = {
-        App = "deloitted-internal-events-feed"
+        App = "demo-internal-events-feed"
       }
     }
     template {
       metadata {
         labels = {
-          App = "deloitted-internal-events-feed"
+          App = "demo-internal-events-feed"
         }
       }
       spec {
         container {
-          image = "gcr.io/mar-roidtc304/internal-image:v1.0.0"
-          name  = "deloitted-internal-events-feed"
+          image = "gcr.io/deloitte-demo-308622/internal-image:v2.1"
+          name  = "demo-internal-events-feed"
 
           port {
             container_port = 8082

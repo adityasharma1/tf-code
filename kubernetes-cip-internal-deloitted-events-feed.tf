@@ -5,7 +5,7 @@ resource "kubernetes_service" "events-internal-service" {
   }
   spec {
     selector = {
-      App = kubernetes_deployment.deloitted-internal-events-feed-deployment.spec.0.template.0.metadata[0].labels.App
+      App = kubernetes_deployment.demo-internal-events-feed-deployment.spec.0.template.0.metadata[0].labels.App
     }
     port {
       port        = 8082
